@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#17070c" />
+  <title>Our Little Love Story ❤️</title>
+  <meta name="description" content="A little anniversary love story for [HER NAME]." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#100407; --bg2:#1a080d; --burg:#4d0f1d; --wine:#741a30;
+      --rose:#e99aaa; --cream:#fff2ec; --muted:#d9bfc3; --glass:rgba(255,255,255,.07);
+      --line:rgba(255,220,225,.16); --shadow:0 24px 70px rgba(0,0,0,.38);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:radial-gradient(circle at 50% 0%,#3a0b17 0,#16060b 35%,#090306 100%);color:var(--cream);font-family:"DM Sans",sans-serif;overflow-x:hidden}
+    button,input{font:inherit}
+    button{cursor:pointer}
+    .noise{position:fixed;inset:0;pointer-events:none;opacity:.045;z-index:20;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+    .petals,.particles{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:2}
+    .petal,.spark{position:absolute;opacity:0;animation:fall linear infinite}
+    .petal{width:8px;height:12px;border-radius:70% 30% 70% 30%;background:rgba(244,160,175,.45);filter:blur(.2px)}
+    .spark{width:3px;height:3px;border-radius:50%;background:#ffe5e5;box-shadow:0 0 12px #ffc6d0;animation:twinkle ease-in-out infinite}
+    @keyframes fall{0%{transform:translate3d(0,-12vh,0) rotate(0);opacity:0}10%{opacity:.55}100%{transform:translate3d(60px,112vh,0) rotate(280deg);opacity:0}}
+    @keyframes twinkle{0%,100%{opacity:0;transform:scale(.5)}50%{opacity:.7;transform:scale(1.2)}}
+    .opening{min-height:100svh;display:grid;place-items:center;text-align:center;padding:32px 20px;position:relative;isolation:isolate}
+    .opening:before{content:"";position:absolute;width:80vw;height:80vw;max-width:850px;max-height:850px;border-radius:50%;background:radial-gradient(circle,rgba(183,45,76,.28),transparent 66%);filter:blur(12px);z-index:-1}
+    .eyebrow{letter-spacing:.24em;text-transform:uppercase;font-size:.68rem;color:#d9a8b1;margin-bottom:20px}
+    h1,h2,h3{font-family:"Cormorant Garamond",serif;font-weight:600}
+    .opening h1{font-size:clamp(2.7rem,9vw,6.7rem);line-height:.92;margin:0 auto 24px;max-width:900px}
+    .script{font-family:"Great Vibes",cursive;color:#f1a4b4}
+    .open-btn,.surprise-btn{border:1px solid rgba(255,214,222,.28);background:linear-gradient(135deg,#7b1d36,#4b0c1b);color:#fff4f4;padding:15px 22px;border-radius:999px;box-shadow:0 12px 36px rgba(100,15,39,.35);transition:.3s transform,.3s box-shadow,.3s background}
+    .open-btn:hover,.surprise-btn:hover{transform:translateY(-2px);box-shadow:0 16px 45px rgba(140,26,55,.45)}
+    .hint{color:#bfa7aa;font-size:.78rem;margin-top:14px}
+    .scroll-cue{position:absolute;bottom:26px;font-size:.72rem;color:#a98d92;letter-spacing:.12em}
+    main{position:relative;z-index:3}
+    section{max-width:1100px;margin:auto;padding:92px 20px}
+    .section-kicker{text-align:center;color:#d995a5;font-size:.7rem;text-transform:uppercase;letter-spacing:.22em;margin-bottom:10px}
+    .section-title{text-align:center;font-size:clamp(2.4rem,7vw,4.5rem);margin:0 0 20px}
+    .section-sub{text-align:center;color:var(--muted);max-width:620px;margin:0 auto 42px;line-height:1.8}
+    .photo-wrap{max-width:720px;margin:0 auto;position:relative;padding:13px}
+    .photo-frame{position:relative;border:1px solid rgba(255,220,225,.3);padding:8px;background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.03));box-shadow:var(--shadow);border-radius:24px;overflow:hidden}
+    .photo-frame:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,rgba(255,255,255,.12),transparent 55%);transform:translateX(-120%);animation:shine 7s ease-in-out infinite}
+    @keyframes shine{55%,100%{transform:translateX(120%)}}
+    .photo{width:100%;height:auto;display:block;border-radius:17px;object-fit:contain;background:#17070c;max-height:75svh}
+    .photo-placeholder{aspect-ratio:4/5;display:grid;place-items:center;padding:30px;text-align:center;color:#c9afb4;background:radial-gradient(circle at 50% 35%,#4b1421,#16070b 70%);border-radius:17px}
+    .photo-placeholder strong{display:block;color:#fff1f1;font-family:"Cormorant Garamond",serif;font-size:1.6rem;margin-bottom:8px}
+    figcaption{text-align:center;font-family:"Great Vibes",cursive;font-size:2rem;color:#efa0b1;margin-top:17px}
+    .hearts{position:absolute;inset:-30px;pointer-events:none}
+    .heart{position:absolute;font-size:17px;filter:drop-shadow(0 0 8px rgba(255,130,158,.7));animation:float 5s ease-in-out infinite}
+    .heart:nth-child(1){left:3%;top:20%;animation-delay:.2s}.heart:nth-child(2){right:5%;top:12%;animation-delay:1s}.heart:nth-child(3){left:8%;bottom:18%;animation-delay:1.7s}.heart:nth-child(4){right:8%;bottom:25%;animation-delay:2.4s}
+    @keyframes float{50%{transform:translateY(-14px) rotate(5deg)}}
+    .letter{max-width:790px;margin:40px auto 0;padding:34px 28px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));backdrop-filter:blur(15px);border-radius:28px;box-shadow:var(--shadow)}
+    .letter p{font-family:"Cormorant Garamond",serif;font-size:clamp(1.25rem,3vw,1.55rem);line-height:1.7;color:#f8e5e3;margin:0}
+    .type-line{display:block;opacity:0;transform:translateY(8px);transition:opacity .7s,transform .7s}
+    .type-line.show{opacity:1;transform:none}
+    .memories{display:grid;grid-template-columns:repeat(5,1fr);gap:13px;margin-top:42px}
+    .card{min-height:240px;padding:24px 18px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.025));backdrop-filter:blur(14px);border-radius:24px;display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;opacity:0;transform:translateY(35px) scale(.97);transition:opacity .8s ease,transform .8s ease,border-color .3s}
+    .card.show{opacity:1;transform:none}
+    .card:hover{border-color:rgba(255,170,185,.4);transform:translateY(-5px)}
+    .card:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 15%,rgba(225,102,131,.2),transparent 45%)}
+    .month{position:relative;color:#e49aaa;font-size:.7rem;text-transform:uppercase;letter-spacing:.15em}
+    .card h3{position:relative;font-size:1.55rem;margin:10px 0 7px}.card p{position:relative;color:#cbb5b8;line-height:1.6;font-size:.85rem;margin:0}
+    .surprise{min-height:80svh;display:grid;place-items:center;text-align:center}
+    .surprise-box{max-width:720px}
+    .surprise-btn{font-size:.95rem;padding:16px 24px}
+    .reveal{max-height:0;opacity:0;overflow:hidden;transition:max-height 1.2s ease,opacity .8s ease;margin-top:30px}
+    .reveal.open{max-height:500px;opacity:1}
+    .reveal .big{font-family:"Great Vibes",cursive;font-size:clamp(2.7rem,9vw,5rem);line-height:1.1;color:#f2a6b5;margin:0 0 20px}
+    .reveal .love{font-family:"Cormorant Garamond",serif;font-size:1.35rem;line-height:1.7;color:#f9e8e6}
+    .final{min-height:100svh;display:grid;place-items:center;text-align:center;position:relative;padding-top:80px}
+    .final-inner{width:min(900px,100%);position:relative}
+    .final-photo{max-width:760px;margin:0 auto 32px}
+    .final-photo .photo-frame{border-radius:30px}
+    .final h2{font-size:clamp(2.5rem,8vw,5.4rem);line-height:1;margin:20px 0 15px}
+    .final .thanks{font-family:"Cormorant Garamond",serif;font-size:1.6rem;color:#f5dedc;margin:0 0 8px}.forever{color:#c8aeb2}
+    footer{text-align:center;color:#806b70;font-size:.72rem;padding:25px 20px 45px}
+    .music{position:fixed;right:17px;top:17px;z-index:30;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,220,225,.22);background:rgba(25,5,11,.72);backdrop-filter:blur(12px);color:#fff;font-size:18px;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+    .music.playing{animation:pulse 1.8s ease-in-out infinite}
+    @keyframes pulse{50%{box-shadow:0 0 0 9px rgba(226,109,137,.08),0 10px 30px rgba(0,0,0,.3)}}
+    .file-panel{position:fixed;left:15px;bottom:15px;z-index:31;background:rgba(20,5,10,.84);backdrop-filter:blur(12px);border:1px solid var(--line);border-radius:16px;padding:10px 12px;display:none}
+    .file-panel label{font-size:.72rem;color:#cbb2b6;display:block;margin:3px 0}.file-panel input{width:210px;font-size:.72rem;color:#ddd}
+    .hidden{display:none!important}
+    @media(max-width:800px){.memories{grid-template-columns:1fr 1fr}.card{min-height:210px}.memories .card:last-child{grid-column:1/-1}}
+    @media(max-width:520px){section{padding:72px 16px}.letter{padding:27px 21px}.memories{grid-template-columns:1fr}.memories .card:last-child{grid-column:auto}.card{min-height:190px}.opening h1{max-width:350px}.file-panel{display:block}}
+    @media(min-width:521px){.file-panel{display:block;opacity:.55;transition:.25s}.file-panel:hover{opacity:1}}
+  </style>
+</head>
+<body>
+  <div class="noise"></div><div class="petals" id="petals"></div><div class="particles" id="particles"></div>
+  <audio id="music" loop preload="auto"></audio>
+  <button class="music" id="musicBtn" aria-label="Play or pause music">♫</button>
+
+  <section class="opening" id="opening">
+    <div>
+      <div class="eyebrow">A tiny world made for you</div>
+      <h1>For the girl who makes my days brighter… <span class="script">❤️</span></h1>
+      <button class="open-btn" id="openBtn">Tap to open our little love story 💕</button>
+      <div class="hint">Turn your sound on, baby.</div>
+    </div>
+    <div class="scroll-cue">SCROLL GENTLY ↓</div>
+  </section>
+
+  <main>
+    <section id="us">
+      <div class="section-kicker">Five months of us</div>
+      <h2 class="section-title">Our little world.</h2>
+      <p class="section-sub">One photo. A handful of memories. And a lot of feelings that are difficult to fit into one page.</p>
+      <figure class="photo-wrap">
+        <div class="hearts"><span class="heart">♡</span><span class="heart">♥</span><span class="heart">♡</span><span class="heart">♥</span></div>
+        <div class="photo-frame">
+          <div class="photo-placeholder" id="photoPlaceholder"><div><strong>Your photo goes here ❤️</strong>Place your photo at <b>assets/us.jpg</b> before deploying.</div></div>
+          <img id="mainPhoto" class="photo hidden" alt="A photo of us">
+        </div>
+        <figcaption>Us ❤️</figcaption>
+      </figure>
+    </section>
+
+    <section id="letter">
+      <div class="section-kicker">A little letter</div>
+      <h2 class="section-title">Happy 5 Months, My Love ❤️</h2>
+      <div class="letter" id="letterBox">
+        <p>
+          <span class="type-line">Five months with you may sound like a small amount of time, but somehow you've already become such a beautiful part of my life.</span>
+          <span class="type-line">Thank you for every smile, every conversation, every little moment, and every memory we've created together.</span>
+          <span class="type-line">I don't know what the future will bring, but I know that I'm grateful that my story has you in it.</span>
+          <span class="type-line">Happy 5 months, my love. ❤️</span>
+          <span class="type-line">Here's to all the moments we've already shared, and to all the beautiful moments still waiting for us.</span>
+        </p>
+      </div>
+    </section>
+
+    <section id="memories">
+      <div class="section-kicker">Little chapters</div>
+      <h2 class="section-title">5 Months. So Many Little Moments. 💕</h2>
+      <p class="section-sub">Every month became another small chapter in something I hope we keep writing together.</p>
+      <div class="memories">
+        <article class="card"><div class="month">Month 1</div><h3>The Beginning 🌱</h3><p>Where our little story started.</p></article>
+        <article class="card"><div class="month">Month 2</div><h3>Getting Closer 🌷</h3><p>Learning more about each other, one moment at a time.</p></article>
+        <article class="card"><div class="month">Month 3</div><h3>More Memories ✨</h3><p>More laughs, more conversations, more reasons to smile.</p></article>
+        <article class="card"><div class="month">Month 4</div><h3>Growing Together 🌙</h3><p>Somehow, you became an even more important part of my world.</p></article>
+        <article class="card"><div class="month">Month 5</div><h3>Still Us ❤️</h3><p>And I'm still so happy that it's you.</p></article>
+      </div>
+    </section>
+
+    <section class="surprise" id="surprise">
+      <div class="surprise-box">
+        <div class="section-kicker">Before you go…</div>
+        <h2 class="section-title">One more thing… 👀❤️</h2>
+        <button class="surprise-btn" id="surpriseBtn">Open my little secret 💌</button>
+        <div class="reveal" id="reveal">
+          <p class="big">If I could choose someone to make more memories with, I'd still choose you. Every time. ❤️</p>
+          <p class="love">I love you. Happy 5 months, baby. 🥰</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="final" id="final">
+      <div class="final-inner">
+        <div class="final-photo">
+          <div class="photo-frame">
+            <div class="photo-placeholder" id="finalPlaceholder"><div><strong>Our photo ❤️</strong>The same photo will appear here automatically.</div></div>
+            <img id="finalPhoto" class="photo hidden" alt="Our anniversary photo">
+          </div>
+        </div>
+        <h2>5 months down…<br>and hopefully many, many more to go. ❤️</h2>
+        <p class="thanks">Thank you for being you.</p>
+        <p class="forever">Forever grateful for our little story. 🌹</p>
+        <p class="forever">— [YOUR NAME] → [HER NAME]</p>
+      </div>
+    </section>
+  </main>
+  <footer>Made with a little bit of HTML, a lot of patience, and even more love. ❤️</footer>
+
+  
+
+<script>
+  // ===== EASY CUSTOMIZATION =====
+  // Put your files in the assets folder:
+  //   assets/us.jpg
+  //   assets/our-song.mp3
+  // Then change these two filenames if needed.
+  const PHOTO_FILE = "assets/us.jpg";
+  const SONG_FILE  = "assets/our-song.mp3";
+
+  const music = document.getElementById("music");
+  const musicBtn = document.getElementById("musicBtn");
+  const openBtn = document.getElementById("openBtn");
+  const mainPhoto = document.getElementById("mainPhoto");
+  const finalPhoto = document.getElementById("finalPhoto");
+  const photoPlaceholder = document.getElementById("photoPlaceholder");
+  const finalPlaceholder = document.getElementById("finalPlaceholder");
+
+  // Try loading your uploaded/placed assets automatically.
+  function loadPhoto(src){
+    const img = new Image();
+    img.onload = () => {
+      mainPhoto.src = src; finalPhoto.src = src;
+      mainPhoto.classList.remove("hidden"); finalPhoto.classList.remove("hidden");
+      photoPlaceholder.classList.add("hidden"); finalPlaceholder.classList.add("hidden");
+    };
+    img.onerror = () => {};
+    img.src = src;
+  }
+  function loadSong(src){
+    music.src = src;
+    music.load();
+  }
+  loadPhoto(PHOTO_FILE);
+  loadSong(SONG_FILE);
+
+  function playMusic(){
+    music.play().then(()=>musicBtn.classList.add("playing")).catch(()=>{});
+  }
+  openBtn.addEventListener("click", ()=>{
+    playMusic();
+    document.getElementById("us").scrollIntoView({behavior:"smooth"});
+  });
+  musicBtn.addEventListener("click", ()=>{
+    if(music.paused){ playMusic(); } else { music.pause(); musicBtn.classList.remove("playing"); }
+  });
+  music.addEventListener("play",()=>musicBtn.classList.add("playing"));
+  music.addEventListener("pause",()=>musicBtn.classList.remove("playing"));
+
+
+  // Ambient petals + sparkles.
+  const petals=document.getElementById("petals"), particles=document.getElementById("particles");
+  for(let i=0;i<16;i++){
+    const p=document.createElement("span"); p.className="petal";
+    p.style.left=Math.random()*100+"%"; p.style.animationDuration=(8+Math.random()*9)+"s";
+    p.style.animationDelay=(-Math.random()*14)+"s"; p.style.transform=`rotate(${Math.random()*180}deg)`;
+    petals.appendChild(p);
+  }
+  for(let i=0;i<34;i++){
+    const s=document.createElement("span"); s.className="spark";
+    s.style.left=Math.random()*100+"%"; s.style.top=Math.random()*100+"%";
+    s.style.animationDuration=(2.2+Math.random()*3)+"s"; s.style.animationDelay=(-Math.random()*5)+"s";
+    particles.appendChild(s);
+  }
+
+  // Scroll reveals.
+  const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(!entry.isIntersecting)return;
+      entry.target.classList.add("show");
+      if(entry.target.id==="letterBox"){
+        entry.target.querySelectorAll(".type-line").forEach((el,i)=>setTimeout(()=>el.classList.add("show"),i*750));
+      }
+      observer.unobserve(entry.target);
+    });
+  },{threshold:.18});
+  document.querySelectorAll(".card,#letterBox").forEach(el=>observer.observe(el));
+
+  document.getElementById("surpriseBtn").addEventListener("click",()=>{
+    document.getElementById("reveal").classList.toggle("open");
+    document.getElementById("surpriseBtn").textContent =
+      document.getElementById("reveal").classList.contains("open") ? "❤️ I hope you smiled." : "Open my little secret 💌";
+  });
+</script>
+</body>
+</html>
